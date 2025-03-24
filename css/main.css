@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+@import url('variables.css');
+
+/* RESET */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+button {
+    background: none;
+    font: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+img, ion-icon, button, a { display: block; }
+
+span { display: inline-block; }
+
+html {
+    font-family: "JetBrains mono", sans-serif;
+    overscroll-behavior: contatin;
+    
+}
+
+input {
+    display: block;
+    width: 100%;
+    font: inherit;
+}
+  
+input::placeholder { font: inherit; }
+
+body{
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--bg-color);
+    border-left: 1px solid var(--cultured);   
+    
+} 
+
+body::-webkit-scrollbar-thumb {
+    background: hsl(0, 0%, 80%);
+    border: 3px solid var(--white);
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
+
+/* MAIN */
+
+header{
+
+}
+
