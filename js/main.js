@@ -1,8 +1,8 @@
-import { HEADER_CATEGORY } from "./data.js";
+import { HEADER_CATEGORY, MOBILEPHONES, BRANDS } from "./data.js";
 import { $, $$ } from "./dom.js";
 
 const renderHeaderCategories = () => {
-    const nav = $(".main-header");
+    const nav = $(".header-categories");
     if (!nav) return;
 
     nav.innerHTML = "";
@@ -39,9 +39,39 @@ const renderHeaderCategories = () => {
         }
     });
 };
+const renderMobilePhones = () => {
+    const container = document.querySelector(
+    "#categoryPage > div.container-productbox > ul"
+    );
+    if (!container) return;
 
+    container.innerHTML = MOBILEPHONES.map(product => `
+    <li class="product-card">
+        <div class="product-image">
+        <img src="${product.image}" alt="${product.name}" />
+        </div>
+        <div class="product-info">
+        <h3 class="product-name">${product.name}</h3>
+         <p class="product-versions">Versions: ${product.versions ? product.versions.join(", ") : "N/A"}</p>
+        <p class="product-price">
+            <span class="price-old">${product.price}</span>
+            <span class="price-sale">${product.salePrice}</span>
+        </p>
+        <p class="product-rating">Rating: ${product.rating} ⭐</p>
+        <p class="product-sold">Sold: ${product.sold}</p>
+        </div>
+    </li>
+    `).join("");
+};
 
-document.addEventListener("DOMContentLoaded", renderHeaderCategories);
+const renderBranchFilter = () => {
+    const branchList = $("#branch-list");
+    if (!branchList) return;
+  
+    branchList.innerHTML = BRANDS.map(brand => `
+      <li class="branch-item">${brand.name}</li>
+    `).join("");
+};
 
 const backToTop = $(".back-to-top");
 
@@ -56,3 +86,10 @@ window.addEventListener("scroll", () => {
 backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    renderMobilePhones();
+    renderHeaderCategories();
+    renderBranchFilter();
+})
